@@ -45,7 +45,7 @@ Expected output:
 12345
 */
 
-console.log("\nBilling address:");
+console.log(person.address.billing.zip);
 
 /*
 Task 1.2
@@ -55,7 +55,7 @@ Print the last of the hobbies
 Expected output:
 comics
 */
-console.log("\nLast hobby:");
+console.log(person.hobbies[2]);
 
 /*
 Task 1.3
@@ -66,7 +66,7 @@ Expected output:
 English: 4
 */
 
-console.log("\nSecond language:");
+console.log(`${person.languages[1].name}: ${person.languages[1].level}`);
 
 /*
 Task 1.4
@@ -79,7 +79,9 @@ Zip: 83-315
 Country: Germany
 */
 
-console.log("\nDelivery address:");
+console.log(`Street: ${person.address.delivery.street}`);
+console.log(`Zip: ${person.address.delivery.zip}`);
+console.log(`Country: ${person.address.delivery.country}`);
 
 /*
 Task 1.5
@@ -93,7 +95,10 @@ Hobbies:
 - comics
 */
 
-console.log("\nHobbies:");
+console.log("Hobbies:");
+for (let i = 0; i < person.hobbies.length; i++) {
+  console.log(`- ${person.hobbies[i]}`);
+}
 
 /*
 Task 1.6
@@ -107,4 +112,8 @@ English: 4
 Spanish: 2
 */
 
-console.log("\nKnown languages:");
+for (let i = 0; i < person.languages.length; i++) {
+  if (person.languages[i].level < 5) {
+    console.log(`${person.languages[i].name}: ${person.languages[i].level}`);
+  }
+}

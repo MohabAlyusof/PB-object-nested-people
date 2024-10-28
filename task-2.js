@@ -168,8 +168,10 @@ Skyler May
 Hobbies: cycling, soccer, bouldering
 */
 
-console.log("\nLast person:");
-
+const lastUser = users[users.length - 1];
+console.log(lastUser.name);
+console.log(`Hobbies: ${lastUser.hobbies.join(", ")}`);
+console.log("");
 
 /*
 Task 2.2
@@ -186,7 +188,14 @@ Zip: 912098
 Country: Mexico
 */
 
-console.log("\nSecond person:");
+const secondUser = users[1];
+console.log(secondUser.name);
+console.log("\nBilling address:");
+console.log("");
+console.log(`Street: ${secondUser.address.billing.street}`);
+console.log(`Zip: ${secondUser.address.billing.zip}`);
+console.log(`Country: ${secondUser.address.billing.country}`);
+console.log("");
 
 /*
 Task 2.3
@@ -203,7 +212,10 @@ Expected output:
 5. Skyler May
 */
 
-console.log("\nUsers:");
+for (let i = 0; i < users.length; i++) {
+  console.log(`${i + 1}. ${users[i].name}`);
+}
+console.log("");
 
 /*
 Task 2.4
@@ -222,7 +234,12 @@ Felix Moreno lives in New Zealand and their favourite hobby is: jogging.
 
 Skyler May lives in Singapore and their favourite hobby is: cycling.
 */
-
+for (let i = 0; i < users.length; i++) {
+  console.log(
+    `${users[i].name} lives in ${users[i].address.delivery.country} and their favourite hobby is: ${users[i].hobbies[0]}.`
+  );
+}
+console.log("");
 
 /*
 Task 2.5
@@ -241,3 +258,13 @@ Abel Ashley speaks fluently:
 
 ...
 */
+
+for (let i = 0; i < users.length; i++) {
+  const fluentLanguages = users[i].languages.filter((lang) => lang.level >= 4);
+  if (fluentLanguages.length > 0) {
+    console.log(`${users[i].name} speaks fluently:`);
+    for (let j = 0; j < fluentLanguages.length; j++) {
+      console.log(`- ${fluentLanguages[j].name}`);
+    }
+  }
+}
